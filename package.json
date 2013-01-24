@@ -1,0 +1,15 @@
+{
+  "name": "boilerplate",
+  "version": "0.0.1",
+  "private": false,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.6",
+		"consolidate" : "*",
+    "swig": "*",
+		"node.packer" : "*",
+    "less-middleware": "*"
+  }
+}

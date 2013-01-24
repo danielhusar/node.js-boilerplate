@@ -1,0 +1,38 @@
+{
+	"js-files" : {
+		"plugins" : ["/js/plugins.js"],
+		"app"		 : ["/js/main.js"]
+	},
+	"swig"	: {
+		"development" : {
+			"root" 		 		: "/views",
+			"encoding" 		: "utf-8",
+			"cache"		 		: false,
+			"allowErrors" : true
+		},
+		"production"	: {
+			"root" 		 		: "/views",
+			"encoding" 		: "utf-8",
+			"cache"		 		: true,
+			"allowErrors" : false
+		}
+	},
+	"less"	: {
+		"development"  : {
+			"src"					 : "/public",
+			"force" 			 : true
+		},
+		"production"	 : {
+			"src"					 : "/public",
+			"compress" 		 : true, 
+			"optimization" : 2
+		}
+	},
+	"cookie" : {
+		"secret" : "secret key"
+	},
+	"mongo-db"	:	{
+		"development" : {},
+		"production"  : {}
+	}
+}
