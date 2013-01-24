@@ -10,4 +10,6 @@ Includes:
 
 Responsive design with predefined less functions.
 
+Please run npm install to install all dependencies.
+
 [HTML5 boilerplate](http://html5boilerplate.com/)
