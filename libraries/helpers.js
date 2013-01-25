@@ -19,7 +19,6 @@ var packer = require('../node_modules/node.packer'),
 exports.template = function(res, template, variables){
 	variables.enviroment = (process.env.NODE_ENV == 'production') ? process.env.NODE_ENV : 'development';
 	variables.resources = settings['js-files'];
-	console.dir(variables);
 	res.render(template, variables);
 };
 
@@ -38,10 +37,10 @@ exports.packJs = function(){
 	}
 	packer({
 		input : appFiles,
-		output : __dirname + '/../public/js/app.packed.js'
+		output : __dirname + '/../public/js/packed/app.js'
 	});
 	packer({
 		input : pluginFiles,
-		output : __dirname + '/../public/js/plugins.packed.js'
+		output : __dirname + '/../public/js/packed/plugins.js'
 	});
 }

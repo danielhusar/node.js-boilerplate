@@ -1,6 +1,7 @@
 {
   "name": "boilerplate",
 	"subdomain": "efrafa-boilerplate",
+	"domains": [],
 	"description": "My custom node.js boilerplate",
 	"keywords": [
     "express",

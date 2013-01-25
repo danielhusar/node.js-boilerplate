@@ -53,6 +53,7 @@ app.engine('.html', cons.swig);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 swig.init(config.swig);
+app.use(express.favicon(__dirname + '/public/img/icons/favicon.ico')); 
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.cookieParser(settings.cookie.secret));

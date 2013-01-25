@@ -1,7 +1,7 @@
 {
 	"js-files" : {
-		"plugins" : ["/js/plugins.js"],
-		"app"		 : ["/js/main.js"]
+		"plugins" : ["/js/vendor/lodash.min.js", "/js/vendor/underscore.string.min.js"],
+		"app"		  : ["/js/global.js", "/js/events.js", "/js/app.js" ]
 	},
 	"swig"	: {
 		"development" : {
