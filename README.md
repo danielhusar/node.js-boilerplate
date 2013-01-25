@@ -10,6 +10,7 @@ Includes:
   - node.packer for packing js files
 
 Responsive design with predefined less functions.
+Javascript functions for code runned only for predefined device.
 
 Please run npm install to install all dependencies.
 
