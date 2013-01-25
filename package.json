@@ -1,9 +1,26 @@
 {
   "name": "boilerplate",
-  "version": "0.0.1",
+	"subdomain": "efrafa-boilerplate",
+	"description": "My custom node.js boilerplate",
+	"keywords": [
+    "express",
+    "nodejitsu",
+    "deployment"
+  ],
+  "version": "0.1.0",
+	"author": "Daniel Husar <dano.husar@gmail.com>",
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/efrafa/node.js-boilerplate.git"
+  },
+	"preferGlobal": true,
   "private": false,
+	"bin": {
+    "jitsu": "./bin/jitsu"
+  },
+	"main": "./lib/jitsu",
   "scripts": {
-    "start": "node app"
+    "start": "app.js"
   },
   "dependencies": {
     "express": "3.0.6",
@@ -11,5 +28,8 @@
     "swig": "*",
 		"node.packer" : "*",
     "less-middleware": "*"
+  },
+	"engines": {
+    "node": ">= 0.4.0"
   }
 }
