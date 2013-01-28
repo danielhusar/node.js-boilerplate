@@ -17,16 +17,15 @@
    *
    * @namespace APP
    */
-  APP.namedConditions = {
-    'desktop'  : function () { return APP.namedConditions.ie() || Modernizr.mq('only screen and (min-width: 1025px)'); },
-    'tablet'   : function () { return (! APP.namedConditions.desktop()) && Modernizr.mq('only screen and (min-width: 569px)'); },
-    'mobile'   : function () { return ! (APP.namedConditions.tablet() || APP.namedConditions.desktop()); },
-    'ieMobile' : function () { return (/IEMobile/i).test(window.navigator.userAgent); },
-    'ie'       : function () { return !! ($.browser.msie && ! APP.namedConditions.ieMobile()); }
+  APP.device = {
+    'desktop'  : function () { return APP.device.ie() || Modernizr.mq('only screen and (min-width: 1025px)'); },
+    'tablet'   : function () { return (! APP.device.desktop()) && Modernizr.mq('only screen and (min-width: 569px)'); },
+    'mobile'   : function () { return ! (APP.device.tablet() || APP.device.desktop()); },
+    'ie'       : function () { return !! ($.browser.msie && ! APP.device.ieMobile()); }
   };
 	
 	/**
-   * Function that will execute callback only if one of named conditions passes
+   * Function that will execute callback only if one of devices passes
    *
    * Especially useful for executing some for mobile only, tablets only, IE only etc.
    *
@@ -35,12 +34,9 @@
    *   // Set up a namespace
    *   namespace('APP');
    *
-   *   APP.when(true    , callback);                      // => will run always
-	 *   APP.when(function(){return true;}    , callback);  // => will run always
-	 *   APP.when('all', callback);                         // => will run always
-   *   APP.when('mobile', callback);                      // => V will run the callback  (just for the mobile)
-	 *   APP.when('desktop', callback);                     // => V will run the callback  (just for the desktop)
-	 *   APP.when('mobile,desktop', callback);              // => V will run the callback  (for the mobile and desktop)
+   *   APP.for('mobile', callback);                      // => V will run the callback  (just for the mobile)
+	 *   APP.for('desktop', callback);                     // => V will run the callback  (just for the desktop)
+	 *   APP.for('mobile,desktop', callback);              // => V will run the callback  (for the mobile and desktop)
 
    *
    * @namespace APP
@@ -50,24 +46,18 @@
    * @param     {Function}  callback    Callback to be triggered when conditions return true
    * @return    {Object}                APP Object (so you can chain methods)
    */
-  APP.when = function (conditions, callback) {
+  APP.for = function (conditions, callback) {
     var result;
     var method;
 
-    if (conditions === 'all') {
-      result = true;
-    } else if (_.isString(conditions))  {
+    if (_.isString(conditions))  {
 
-      conditions = conditions.split(','); // create an array of namedConditions
+      conditions = conditions.split(','); // create an array of device
 
       result     = _.some(conditions, function (condition) {
-        return !! (_.result(APP.namedConditions, condition) || false);
+        return !! (_.result(APP.device, condition) || false);
       });
 
-    } else if (_.isFunction(conditions)) {
-      result = !!conditions();
-    } else {
-      result = !!conditions;
     }
 
     if (result) {
@@ -100,13 +90,6 @@
    *     // (nothing happens)
    *
    *
-   *   3. Given I am on 'about' page:
-   *
-   *     APP.onPages('all', function (page) {
-   *       console.log('Code Executed Successfully on page "' + page + '"');
-   *     });
-   *     // => Code Executed Successfully on page "about" (Pages allowed: "all")
-   *
    *
    *
    * @chainable
@@ -119,12 +102,12 @@
     var pages;
     var currentPage;
 
-    if (! _.isString(pageNames)) { pageNames = ''; }
+    if (!_.isString(pageNames)) { pageNames = ''; }
 
     pages       = pageNames.split(',');
     currentPage = (window.location.pathname && window.location.pathname != '/') ? window.location.pathname : '/home';
 
-    if (_.contains(pages, currentPage) || _.contains(pages, 'all')) {
+    if (_.contains(pages, currentPage)) {
       callback(APP.settings.environment.page.path);
     }
 
