@@ -21,7 +21,7 @@
     'desktop'  : function () { return APP.device.ie() || Modernizr.mq('only screen and (min-width: 1025px)'); },
     'tablet'   : function () { return (! APP.device.desktop()) && Modernizr.mq('only screen and (min-width: 569px)'); },
     'mobile'   : function () { return ! (APP.device.tablet() || APP.device.desktop()); },
-		'ieMobile' : function () { return (/IEMobile/i).test(window.navigator.userAgent); },
+    'ieMobile' : function () { return (/IEMobile/i).test(window.navigator.userAgent); },
     'ie'       : function () { return !! ($.browser.msie && ! APP.device.ieMobile()); }
   };
 	
