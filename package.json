@@ -12,7 +12,7 @@
 	"author": "Daniel Husar <dano.husar@gmail.com>",
 	"repository": {
     "type": "git",
-    "url": "https://github.com/efrafa/node.js-boilerplate.git"
+    "url": "https://github.com/danielhusar/node.js-boilerplate"
   },
 	"preferGlobal": true,
   "private": false,

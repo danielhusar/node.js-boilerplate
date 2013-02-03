@@ -5,13 +5,13 @@
 	},
 	"swig"	: {
 		"development" : {
-			"root" 		 		: "/views",
+			"root" 		 		: "/app/views",
 			"encoding" 		: "utf-8",
 			"cache"		 		: false,
 			"allowErrors" : true
 		},
 		"production"	: {
-			"root" 		 		: "/views",
+			"root" 		 		: "/app/views",
 			"encoding" 		: "utf-8",
 			"cache"		 		: true,
 			"allowErrors" : false

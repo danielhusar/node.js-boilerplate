@@ -9,9 +9,10 @@ var express  = require('express'),
   	http     = require('http'),
 		cons     = require('consolidate'),
   	swig     = require('swig'),
-		helpers  = require('./libraries/helpers'),
+		helpers  = require('./app/helpers/helpers'),
   	path     = require('path'),
-		settings = require('./settings');
+		settings = require('./config/settings');
+
 
 //app init
 var app = express(),
@@ -51,7 +52,7 @@ config.less.src = __dirname + config.less.src;
 app.set('port', process.env.PORT || 3000);
 app.engine('.html', cons.swig);
 app.set('view engine', 'html');
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/app/views');
 swig.init(config.swig);
 app.use(express.favicon(__dirname + '/public/img/icons/favicon.ico')); 
 app.use(express.bodyParser());

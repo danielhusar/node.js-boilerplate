@@ -3,8 +3,8 @@
  * 
  *
 */
-var packer = require('../node_modules/node.packer'),
-		settings = require('../settings');
+var packer = require(process.cwd() + '/node_modules/node.packer'),
+		settings = require(process.cwd()  + '/config/settings');
 
 /**
 
