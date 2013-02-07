@@ -34,7 +34,6 @@
 	<script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
 
 	{% if enviroment == 'development' %}
-		
 		<!-- app plugins -->
 		{% for resource in resources.plugins -%}
 				<script src="{{ resource }}"></script>
@@ -44,7 +43,6 @@
 		{% for resource in resources.app -%}
 				<script src="{{ resource }}"></script>
 		{%- endfor %}
-
 	{% else %}
 		<script src="/js/packed/plugins.js"></script>
 		<script src="/js/packed/app.js"></script>

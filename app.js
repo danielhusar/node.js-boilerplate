@@ -13,7 +13,13 @@ var express  = require('express'),
 
 //require all controllers with the models
 require("fs").readdirSync("./app/controllers").forEach(function(file) {
-	require('./app/controllers/' + file)(app, require('./app/models/' + file)(app, helpers), helpers);
+	var model;
+	try{
+		model = require('./app/models/' + file)(app, helpers);
+	} catch(err) {
+		model = false;
+	}
+	require('./app/controllers/' + file)(app, model, helpers);
 });
 
 

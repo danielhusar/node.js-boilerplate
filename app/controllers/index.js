@@ -1,7 +1,5 @@
 /**
-
 	EXAMPLE OF ONE CONTROLLER, EVERY CONTROLLER MUST HAVE MODEL WITH SAME NAME INSIDE MODEL DIRECTORY
-
 **/
 
 /**
@@ -13,7 +11,7 @@
  */
 module.exports = function(app, model, helpers){
 
-	app.get('/test', function(req, res){
+	app.get('/', function(req, res){
 		helpers.template(res, 'index.html', {});
 	});
 
