@@ -11,6 +11,7 @@ Includes:
 
 Responsive design with predefined less functions.
 Javascript functions for code runned only for predefined device.
+Very simple MVC logic.
 
 Please run npm install to install all dependencies.
 
