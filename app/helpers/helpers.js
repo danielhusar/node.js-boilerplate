@@ -22,7 +22,10 @@ exports.template = function(res, template, variables){
 	res.render(template, variables);
 };
 
-//pack all the js files
+/**
+ * Pack all the javascript files
+ * @return {void}
+ */
 exports.packJs = function(){
 	//pack the files	
 	var appFiles = [],
