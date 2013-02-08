@@ -1,7 +1,7 @@
 node.js-boilerplate
 ===================
 
-My boilerplate for node js.
+My boilerplate for node.js.
 
 Includes:
   - express framework
