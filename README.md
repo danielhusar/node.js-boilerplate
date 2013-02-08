@@ -3,7 +3,7 @@ node.js-boilerplate
 
 My boilerplate for node js.
 
-Includes:
+Includes
   - express framework
   - less css for css rendering
   - swig as templating engine
