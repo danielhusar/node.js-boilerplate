@@ -28,8 +28,6 @@ module.exports = function(app, express){
 		config.swig = settings.swig.production;
 		//less settings
 		config.less = settings.less.production;
-		//pack all js files
-		helpers.packJs();
 	});
 
 	//include dirnames for config urls
