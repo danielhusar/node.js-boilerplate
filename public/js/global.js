@@ -1,6 +1,6 @@
 (function (window, document, undefined) {
 	/**
-   * Global namesapce
+   * Global namespace
    *
    * @namespace: APP
    */

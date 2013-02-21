@@ -1,26 +1,10 @@
-var a = '';
-
-
-/*** REQUIRE: /app.js ***/ 
-
-testttt
-
-
-/*** REQUIRE: /app.js ***/ 
-
-testttt
-
-
-/*** REQUIRE: /events.js ***/ 
-
-
 
 
 /*** REQUIRE: /global.js ***/ 
 
 (function (window, document, undefined) {
 	/**
-   * Global namesapceaaaa
+   * Global namespace
    *
    * @namespace: APP
    */
@@ -141,3 +125,7 @@ testttt
 
 
 })(this, this.document);
+
+
+/*** REQUIRE: /events.js ***/ 
+

@@ -4,9 +4,23 @@ module.exports = function(app, express){
   	  swig    	 = require('swig'),
 			helpers 	 = require('../app/helpers/helpers'),
 			path 			 = require('path'),
-			settings 	 = require('./settings'),
+			packer 		 = require('js-combiner')
 			config     = {};
 			
+  config.swig = {
+		"root" 		 	: process.cwd() + "/app/views",
+		"encoding" 	: "utf-8"
+	};
+
+	config.less = {
+		"src"				: process.cwd() + "/public"
+	};
+
+	config.packer = {
+		'files' : ['/app.js'],
+		'packedFolder' : ''
+	};
+
 
 	//development enviroment
 	app.configure('development', function(){
@@ -14,9 +28,12 @@ module.exports = function(app, express){
 		app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 		app.use(express.logger('dev'));
 		//swig settings
-		config.swig = settings.swig.development;
+		config.swig.cache = false;
+		config.swig.allowErrors = true;
 		//less settings
-		config.less = settings.less.development;
+		config.less.force = true;
+		//packer settings
+		config.packer.reload = true;
 	});
 
 	//production enviroment
@@ -25,14 +42,17 @@ module.exports = function(app, express){
 		app.use(express.errorHandler());
 		app.use(express.logger());
 		//swig settings
-		config.swig = settings.swig.production;
+		config.swig.cache = true;
+		config.swig.allowErrors = false;
 		//less settings
-		config.less = settings.less.production;
+		config.less.compress = true;
+		config.less.optimization = 2;
+		//packer settings
+		config.packer.minify = true;
 	});
 
-	//include dirnames for config urls
-	config.swig.root = process.cwd() + config.swig.root;
-	config.less.src = process.cwd() + config.less.src;
+	//pack files
+	packer(config.packer);
 
 	//settings
 	app.set('port', process.env.PORT || 3000);
@@ -43,7 +63,7 @@ module.exports = function(app, express){
 	app.use(express.favicon(process.cwd() + '/public/img/icons/favicon.ico')); 
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
-	app.use(express.cookieParser(settings.cookie.secret));
+	app.use(express.cookieParser('secreet key'));
 	app.use(express.session());
 	app.use(app.router);
 	app.use(require('less-middleware')(config.less));

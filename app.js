@@ -11,15 +11,6 @@ var express  = require('express'),
 		config = require('./config/config')(app, express);
 
 
-		var packer = require('js-combiner')(
-			{
-				'files' : ['/test.js'], 
-				'vars' : {
-					'haha' : 'hihi'
-				}
-			});
-
-
 //require all controllers with the models
 require("fs").readdirSync("./app/controllers").forEach(function(file) {
 	var model;
@@ -31,11 +22,8 @@ require("fs").readdirSync("./app/controllers").forEach(function(file) {
 	require('./app/controllers/' + file)(app, model, helpers);
 });
 
-
-
 //require static routes
 require('./config/routes')(app, helpers);
-
 
 //start server
 var port = process.env.PORT || 3000;

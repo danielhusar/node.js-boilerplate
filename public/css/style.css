@@ -1009,9 +1009,16 @@ textarea {
     page-break-after: avoid;
   }
 }
+header {
+  background: black;
+}
 @media only screen and (min-width: 569px) {
-  
+  header {
+    background: blue;
+  }
 }
 @media only screen and (min-width: 1025px) {
-  
+  header {
+    background: green;
+  }
 }
