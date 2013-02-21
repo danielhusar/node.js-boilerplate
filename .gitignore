@@ -26,6 +26,8 @@ lib-cov
 *.pid
 *.gz
 
+*.packed.js
+
 pids
 logs
 results
